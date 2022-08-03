@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>FSharp</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+      <PackageReference Include="FsUnit.xUnit" Version="5.0.0" />
+      <PackageReference Include="Unquote" Version="6.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="FizzBuzz\Implementation.fs" />
+      <Compile Include="FizzBuzz\Tests.fs" />
+    </ItemGroup>
+
+</Project>
