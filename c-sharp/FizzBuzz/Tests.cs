@@ -6,7 +6,7 @@ namespace CSharp.FizzBuzz;
 public class Tests
 {
     [Fact]
-    public void ReturnsListOfNumbers_WhenNotConditionsAreMet()
+    public void ReturnsListOfNumbers_WhenNoConditionsAreMet()
     {
         var fizzBuzz = new FizzBuzz(1, 2);
         var result = fizzBuzz.GetResult();
@@ -54,7 +54,7 @@ public class Tests
     }
     
     [Fact]
-    public void ReturnsFizzBuzz_IfDividableByThreeAndFive_AndNotDividableBySeven()
+    public void ReturnsNumber_IfDividableBySeven()
     {
         var fizzBuzz = new FizzBuzz(1, 105);
         var result = fizzBuzz.GetResult();
