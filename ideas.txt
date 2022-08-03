@@ -1,0 +1,12 @@
+Diamonds
+TirePressure
+Product-Export-Refactoring
+FizzBuzz
+Yatzy-Refactoring
+Tennis
+Game of Life
+HtmlConverter
+Encode-Refactoring
+Mars Rover
+Leap Year
+Horse
