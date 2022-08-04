@@ -26,6 +26,14 @@ public class XmlExporterTests
     }
 
     [Fact]
+    public Task ExportFull()
+    {
+        var orders = new List<Order> {SampleModelObjects.RecentOrder, SampleModelObjects.OldOrder};
+        var xml = XmlExporter.ExportFull(orders);
+        return VerifyXml(xml, DefaultSettings);
+    }
+
+    [Fact]
     public Task ExportHistory()
     {
         var orders = new List<Order> {SampleModelObjects.RecentOrder, SampleModelObjects.OldOrder};
