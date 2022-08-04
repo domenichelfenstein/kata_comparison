@@ -16,6 +16,9 @@
     <ItemGroup>
       <Compile Include="FizzBuzz\Implementation.fs" />
       <Compile Include="FizzBuzz\Tests.fs" />
+      <Compile Include="ProductExport\Implementation\Types.fs" />
+      <Compile Include="ProductExport\Implementation\TaxCalculator.fs" />
+      <Compile Include="ProductExport\Implementation\Exporter.fs" />
       <Compile Include="ProductExport\Tests\SampleObjects.fs" />
       <Compile Include="ProductExport\Tests\XmlExporterTests.fs" />
     </ItemGroup>

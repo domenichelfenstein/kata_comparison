@@ -6,6 +6,7 @@ open System.Text
 open System.Text.RegularExpressions
 open System.Xml
 open FSharp.Dependency.ProductExport
+open FSharp.ProductExport
 open FSharp.ProductExport.Tests
 open VerifyTests
 open VerifyXunit
@@ -27,17 +28,17 @@ let toCSList (input : 'a list) =
 
 [<Fact>]
 let ``tax details`` () =
-    let xml = XmlExporter.ExportTaxDetails ([ SampleObjects.recentOrder ; SampleObjects.oldOrder ] |> toCSList)
+    let xml = Exporter.exportTaxDetails [ SampleObjects.recentOrder ; SampleObjects.oldOrder ]
     verifyXml xml defaultSettings
 
 [<Fact>]
 let ``store`` () =
-    let xml = XmlExporter.ExportStore SampleObjects.flagshipStore
+    let xml = XmlExporter.ExportStore DependencySampleObjects.flagshipStore
     verifyXml xml defaultSettings
 
 [<Fact>]
 let ``history`` () =
-    let xml = XmlExporter.ExportHistory ([ SampleObjects.recentOrder ; SampleObjects.oldOrder ] |> toCSList)
+    let xml = XmlExporter.ExportHistory ([ DependencySampleObjects.recentOrder ; DependencySampleObjects.oldOrder ] |> toCSList)
     let settings = defaultSettings
     let scrubber (input: StringBuilder) =
         let regex = "createdAt=\"[^\"]+\""
@@ -49,5 +50,5 @@ let ``history`` () =
 
 [<Fact>]
 let ``full`` () =
-    let xml = XmlExporter.ExportFull ([ SampleObjects.recentOrder ; SampleObjects.oldOrder ] |> toCSList)
+    let xml = XmlExporter.ExportFull ([ DependencySampleObjects.recentOrder ; DependencySampleObjects.oldOrder ] |> toCSList)
     verifyXml xml defaultSettings
