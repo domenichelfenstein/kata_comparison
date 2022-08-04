@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml;
 using CSharp.ProductExport.Implementation;
 
@@ -13,10 +14,35 @@ public class XmlExporterTests
         var orders = new List<Order> {SampleModelObjects.RecentOrder, SampleModelObjects.OldOrder};
         var xml = XmlExporter.ExportTaxDetails(orders);
 
-        return VerifyXml(xml);
+        return VerifyXml(xml, DefaultSettings);
     }
 
-    private static VerifySettings Settings
+    [Fact]
+    public Task ExportStore()
+    {
+        var store = SampleModelObjects.FlagshipStore;
+        var xml = XmlExporter.ExportStore(store);
+        return VerifyXml(xml, DefaultSettings);
+    }
+
+    [Fact]
+    public Task ExportHistory()
+    {
+        var orders = new List<Order> {SampleModelObjects.RecentOrder, SampleModelObjects.OldOrder};
+        var xml = XmlExporter.ExportHistory(orders);
+        var settings = DefaultSettings;
+        settings.AddScrubber(
+            input =>
+            {
+                var regex = "createdAt=\"[^\"]+\"";
+                var replacement = "createdAt=\"2018-09-20T00:00Z\"";
+                var scrubbed = Regex.Replace(input.ToString(), regex, replacement);
+                input.Clear().Append(scrubbed);
+            });
+        return VerifyXml(xml, settings);
+    }
+
+    private static VerifySettings DefaultSettings
     {
         get
         {
@@ -27,13 +53,13 @@ public class XmlExporterTests
         }
     }
 
-    private static Task VerifyXml(string xml)
+    private static Task VerifyXml(string xml, VerifySettings settings)
     {
         try
         {
             var xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(xml);
-            return Verify(ToIndentedString(xmlDoc), Settings);
+            return Verify(ToIndentedString(xmlDoc), settings);
         }
         catch (Exception e)
         {
