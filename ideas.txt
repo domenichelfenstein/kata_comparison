@@ -1,7 +1,6 @@
 Diamonds
 TirePressure
 Product-Export-Refactoring
-FizzBuzz
 Yatzy-Refactoring
 Tennis
 Game of Life
