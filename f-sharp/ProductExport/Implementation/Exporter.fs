@@ -17,7 +17,6 @@ module Exporter =
             xml.Append (FSharp.Dependency.ProductExport.Util.ToIsoDate (order.DateTime)) |> ignore
             xml.Append ("'") |> ignore
             xml.Append (">") |> ignore
-            let mutable tax = 0.0
 
             for product in order.Products do
                 xml.Append ("<product") |> ignore
@@ -28,23 +27,14 @@ module Exporter =
                 xml.Append (product.Name) |> ignore
                 xml.Append ("</product>") |> ignore
 
-                if product.IsEvent () then
-                    tax <- tax + (product.Price |> Price.getAmountInCurrency "USD") * 0.25
-                else
-                    tax <- tax + (product.Price |> Price.getAmountInCurrency "USD") * 0.175
-
             xml.Append ("<orderTax currency='USD'>") |> ignore
 
-            if order.DateTime < FSharp.Dependency.ProductExport.Util.FromIsoDate ("2018-01-01T00:00Z") then
-                tax <- tax + 10.0
-            else
-                tax <- tax + 20.0
-
+            let tax = TaxCalculator.calculate order
             xml.Append ($"%0.2f{tax}%%") |> ignore
             xml.Append ("</orderTax>") |> ignore
             xml.Append ("</order>") |> ignore
 
-        let totalTax = TaxCalculator.calculate orders
+        let totalTax = orders |> List.sumBy TaxCalculator.calculate
 
         xml.Append ($"%0.2f{totalTax}%%") |> ignore
         xml.Append ("</orderTax>") |> ignore
