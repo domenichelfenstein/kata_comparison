@@ -7,6 +7,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{6FA028C5-83DA-4970-BDD4-A273AB5E8198}"
 	ProjectSection(SolutionItems) = preProject
 		ideas.txt = ideas.txt
+		.gitignore = .gitignore
 	EndProjectSection
 EndProject
 Global

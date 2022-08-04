@@ -1,11 +1,13 @@
-﻿namespace CSharp.ProductExport.Implementation
+﻿using CSharp.ProductExport.Implementation;
+
+namespace CSharp.ProductExport.Tests
 {
     /// <summary>
     /// This class contains some sample product data that you could use in your tests.
     /// </summary>
     public class SampleModelObjects
     {
-        public static Product CherryBloom = new Product("Cherry Bloom", "LIPSTICK01", 30, new Price(14.99D, "USD"));
+        public static readonly Product CherryBloom = new Product("Cherry Bloom", "LIPSTICK01", 30, new Price(14.99D, "USD"));
         public static Product RosePetal = new Product("Rose Petal", "LIPSTICK02", 30, new Price(14.99D, "USD"));
         public static Product BlusherBrush = new Product("Blusher Brush", "TOOL01", 50, new Price(24.99D, "USD"));
         public static Product EyelashCurler = new Product("Eyelash curler", "TOOL01", 100, new Price(19.99D, "USD"));
@@ -23,5 +25,7 @@
 
         public static Order RecentOrder = new Order("1234", Util.FromIsoDate("2018-09-01T00:00Z"),
             FlagshipStore, new Product[] {Makeover});
+        public static Order OldOrder = new Order("1235", Util.FromIsoDate("2017-09-01T00:00Z"),
+            FlagshipStore, new Product[] { CherryBloom });
     }
 }
