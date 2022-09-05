@@ -1,6 +1,9 @@
+https://sammancoaching.org/kata_descriptions/index.html
+
+https://hackmd.io/@pierodibello/A-curated-list-of-programming-kata
+
 Diamonds
 TirePressure
-Product-Export-Refactoring
 Yatzy-Refactoring
 Tennis
 Game of Life
