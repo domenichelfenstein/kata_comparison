@@ -7,25 +7,30 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0"/>
-        <PackageReference Include="FsUnit.xUnit" Version="5.0.0"/>
-        <PackageReference Include="Unquote" Version="6.1.0"/>
-        <PackageReference Include="Verify.Xunit" Version="17.5.0"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+        <PackageReference Include="FsUnit.xUnit" Version="5.0.0" />
+        <PackageReference Include="Unquote" Version="6.1.0" />
+        <PackageReference Include="Verify.Xunit" Version="17.5.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Include="FizzBuzz\Implementation.fs"/>
-        <Compile Include="FizzBuzz\Tests.fs"/>
-        <Compile Include="ProductExport\Implementation\Types.fs"/>
-        <Compile Include="ProductExport\Implementation\TaxCalculator.fs"/>
-        <Compile Include="ProductExport\Implementation\Exporter.fs"/>
-        <Compile Include="ProductExport\Tests\SampleObjects.fs"/>
-        <Compile Include="ProductExport\Tests\XmlExporterTests.fs"/>
+        <Compile Include="FizzBuzz\Implementation.fs" />
+        <Compile Include="FizzBuzz\Tests.fs" />
+        <Compile Include="ProductExport\Implementation\Types.fs" />
+        <Compile Include="ProductExport\Implementation\TaxCalculator.fs" />
+        <Compile Include="ProductExport\Implementation\Exporter.fs" />
+        <Compile Include="ProductExport\Tests\SampleObjects.fs" />
+        <Compile Include="ProductExport\Tests\XmlExporterTests.fs" />
         <EmbeddedResource Include="ProductExport\Tests\Data\**" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\f-sharp-dependency\f-sharp-dependency.csproj"/>
+        <ProjectReference Include="..\f-sharp-dependency\f-sharp-dependency.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="ShoppingBasket\Implementation.fs" />
+      <Compile Include="ShoppingBasket\Tests.fs" />
     </ItemGroup>
 
 </Project>
