@@ -1,5 +1,6 @@
 https://sammancoaching.org/kata_descriptions/index.html
-
+https://github.com/ardalis/kata-catalog
+https://www.codurance.com/katalyst
 https://hackmd.io/@pierodibello/A-curated-list-of-programming-kata
 
 Diamonds
