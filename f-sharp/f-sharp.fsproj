@@ -31,6 +31,8 @@
     <ItemGroup>
       <Compile Include="ShoppingBasket\Implementation.fs" />
       <Compile Include="ShoppingBasket\Tests.fs" />
+      <Compile Include="StringCalculator\Implementation.fs" />
+      <Compile Include="StringCalculator\Tests.fs" />
     </ItemGroup>
 
 </Project>
